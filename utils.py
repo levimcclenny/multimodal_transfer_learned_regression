@@ -1,5 +1,7 @@
 import sys, getopt
 from pickle import dump, load
+import matplotlib.pyplot as plt
+import numpy as np
 
 def get_type_input():
    if len(sys.argv[1:]) > 1:
@@ -21,7 +23,7 @@ def get_data(type):
    if type == 1:
       try:
          print("Loading VGG16 images from data/ directory\n")
-         images = load(open("data/VGG16_images.pkl", 'rb'))
+         images = load(open("data/VGG16_images_2.pkl", 'rb'))
       except:
          print("VGG16 images couldnt be found in data/VGG16_images.pkl")
    if type == 2:
@@ -52,16 +54,19 @@ def get_data(type):
    return images, parameters, properties
 
 
-def plot_preds(pred, act):
-   for i in range(len(pred)):
+def plot_preds(pred, act, plotline = True):
+   fig = plt.figure(figsize=(15,5))
+   for i in range(np.shape(pred)[1]):
        plt.subplot(2, 3, i+1)
-       plt.plot(x,x, "--", color = 'firebrick', linewidth=3)
+       if plotline:
+          x = np.linspace(-3, 3, 1000)
+          plt.plot(x,x, "--", color = 'firebrick', linewidth=3)
        plt.yscale('linear')
        plt.ylabel("$\overline{y}$")
        plt.xlabel("$y_{true}$")
        plt.xlim((-3,3))
        plt.ylim((-5,5))
        plt.scatter(pred[:,i], act[:,i], s=150, color="gray", alpha=0.3)
-       plt.title(names[i])
+       #plt.title(names[i])
    fig.tight_layout(pad=2.0)
    plt.show()

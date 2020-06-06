@@ -18,8 +18,9 @@ def MLP_model(in_dim):
 # CNN_type codes, 1 = VGG16, 2 = ResNet, 3 = Inception
 # note for Inception that input image size is (299,299,3)
 def CNN_model(type):
+    print(type)
     if type == 1:
-        net = applications.vgg16.VGG16(weights='imagenet')
+        net = applications.vgg16.VGG16(weights='imagenet', input_shape = (224,224,3))
         output = net.layers[-2].output
         # This keeps both 4096 layers and fine tunes after that.
         # After much experimentation, this approach yields better regression accuracy with fewer training parameters,
@@ -27,22 +28,25 @@ def CNN_model(type):
         # output = net.layers[-4].output
         # but beware stability issues in training with a small dataset
 
-    if type == 2:
+    elif type == 2:
+        print("inside resnet loop")
+        print(type)
         net = applications.resnet50.ResNet50(weights='imagenet')
         output = net.layers[-2].output
         #this picks up after the AveragePooling2d layer before the final 1000 class FC layer
 
-    if type == 3:
+    elif type == 3:
         net = applications.inception_v3.InceptionV3(weights='imagenet')
         output = net.layers[-2].output
         # this picks up after the AveragePooling2d layer before the final 1000 class FC layer
         # note that input size must be (299,299,3)
-    else:
-        print('CNN_type nust be one of (1,2,3) for Imagenet, ResNet, or Inception')
 
     cnn_model = Model(net.input, output)
+    cnn_model.trainable = False
     for layer in cnn_model.layers:
         layer.trainable = False
+    print(cnn_model.summary())
+
 
     model = Sequential()
     model.add(cnn_model)
