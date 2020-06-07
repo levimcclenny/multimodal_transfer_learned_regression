@@ -76,12 +76,13 @@ Data must be stored in the ```data/``` directory of this repo for the DMTL-R est
 Regardless of the CNN architecture and subsequent images you download, you will need the [properties.pkl](https://drive.google.com/open?id=1wOPtTnUPtv6c6zm2tzNFULRqP8tGXbvW) and [parameters.pkl](https://drive.google.com/open?id=15mWEnSpbLebTI4lfOEERRNTcqgz8gARF) in the ```data/``` folder as well. So, if you want to train the DMTL-R with the fine-tuned ResNet architecture, you would have three files - ```ResNet_images.pkl```,```parameters.pkl```, and ```parameters.pkl``` in your local ```data/``` folder.
 
 ## Usage
-Once the data is in the ```data/``` folder, then training DMTL-R can be done by running the command
+Once the data is in the ```data/``` folder, then training DMTL-R can be performed by running the command
 ```
-python train.py --resnet
+python train.py --resnet 20
 ```
+in terminal window from the repo top level folder. Here, the flag ```--resnet``` can be replaced with ```--inception``` or ```--VGG16``` if those models are desired. The integer ``20`` is the number of training epochs, and can be varied if the user would like to see results faster. The DMTL-R takes about 4 sec/epoch to train on a single V100 GPU and ~2.5 mins/epoch on a 2017 MacBook Pro with a 2.9 GHz Quad-Core Intel Core i7.
 
-where the flag ```--resnet``` can be replaced with ```--inception``` or ```--VGG16``` if those models are desired. The DMTL-R results will automatically pop up in a quartz (or equivalent) window upon completion, similar to the one below:
+The DMTL-R results will automatically pop up in a quartz (or equivalent) window upon completion, similar to the one below:
 
 <center>
   <img align = "middle" src = "results.png" height = 250>
