@@ -4,20 +4,27 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 def get_type_input():
-   if len(sys.argv[1:]) > 1:
-         print('run train.py with only one of either --VGG16 --Inception --ResNet flags')
+   if len(sys.argv[1:]) > 2:
+         print('run train.py with only one of either --VGG16 --Inception --ResNet flags and number of epochs')
          sys.exit()
-   arg = sys.argv[1:][0].lower()
-
-   if arg == "--vgg16":
+   cnn_arg = sys.argv[1:][0].lower()
+#print(sys.argv[1:])
+   if cnn_arg == "--vgg16":
       cnn_type = 1
-   elif arg == "--resnet":
+   elif cnn_arg == "--resnet":
       cnn_type = 2
-   elif arg == '--inception':
+   elif cnn_arg == '--inception':
       cnn_type = 3
    else:
       print('run train.py with either --VGG16 --Inception --ResNet flags')
-   return cnn_type
+      sys.exit()
+
+   try:
+      num_epochs = np.array(sys.argv[1:][1]).astype(int)
+   except:
+      print("number of epochs must be an integer!")
+      sys.exit()
+   return cnn_type, num_epochs
 
 def get_data(type):
    if type == 1:

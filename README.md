@@ -65,10 +65,15 @@ numpy version = 1.15.4
 ```
 
 ## Data
-The data used in the paper is a subset of the data available at the [open-source microstructure database](http://microstructures.net). Data in the paper has been reduced to 2500 images of fully spinoidally-decomposed micorstructures, which have been preprocessed for each individual CNN. Those files are available as a ```.pkl``` file.
+The data used in the paper is a very small subset of the data available at the [open-source microstructure database](http://microstructures.net). Data in the paper has been reduced to 2500 images of fully spinoidally-decomposed micorstructures, which have been preprocessed for each individual CNN. These preprocessed files are available as a ```.pkl``` file.
 
-Data must be stores in the ```data/``` directory of this repo for the DMTL-R estimator to find it. The files are large (~1.5 Gb for the ResNet/VGG16 networks and ~2.4 Gb for the Inception network), therefore it is only recommended that you download the one that you are interested in running.
+Data must be stored in the ```data/``` directory of this repo for the DMTL-R estimator to find it. The files are large (~1.5 Gb for the ResNet/VGG16 networks and ~2.4 Gb for the Inception network), therefore it is only recommended that you download the one that you are interested in running.
 
+[ResNet Images](https://drive.google.com/open?id=1wmMzKq3-tv7ll5mfvjrV_4SxWYtFWZdo)<br>
+[VGG16 Images](https://drive.google.com/open?id=1t8WEMfmyy_klvT9NkLrZvooK59hnSx1R)<br>
+[Inception Images](https://drive.google.com/open?id=1i4g9T2X8rzOLr3IXXEiLgR8dKs9UCbIf)
+
+Regardless of the CNN architecture and subsequent images you download, you will need the [properties.pkl](https://drive.google.com/open?id=1wOPtTnUPtv6c6zm2tzNFULRqP8tGXbvW) and [parameters.pkl](https://drive.google.com/open?id=15mWEnSpbLebTI4lfOEERRNTcqgz8gARF) in the ```data/``` folder as well. So, if you want to train the DMTL-R with the fine-tuned ResNet architecture, you would have three files - ```ResNet_images.pkl```,```parameters.pkl```, and ```parameters.pkl``` in your local ```data/``` folder.
 
 ## Usage
 Once the data is in the ```data/``` folder, then training DMTL-R can be done by running the command

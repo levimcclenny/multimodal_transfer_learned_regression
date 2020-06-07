@@ -13,7 +13,7 @@ class DMTLR:
       self.state = np.random.randint(100)
       self.model = None
 
-   def fit(self, train_imgs, train_vals, train_target_vals):
+   def fit(self, train_imgs, train_vals, train_target_vals, num_epochs):
       self.target_dim = np.shape(train_target_vals)[1]
       self.descriptive_dim = np.shape(par)[1]
 
@@ -23,7 +23,7 @@ class DMTLR:
       model.compile(loss='mean_squared_error', optimizer=optimizers.Adam(lr=.001, decay = .001/50))
 
       history = model.fit([train_vals, train_imgs], train_target_vals , batch_size = 32,
-                    epochs=5, verbose = 1)
+                    epochs=num_epochs, verbose = 1)
 
       self.model = model
 
@@ -37,7 +37,7 @@ class DMTLR:
 if __name__ == "__main__":
 
    #grab the CNN type desired from the user
-   type = get_type_input()
+   type, epochs = get_type_input()
 
    #Get data for reproducing results from paper
    images, par, targets = get_data(type)
@@ -52,7 +52,7 @@ if __name__ == "__main__":
    X_train_vals, X_test_vals, y_train, y_test = train_test_split(par, targets, test_size=0.33, random_state=state)
 
    dmtlr = DMTLR(type)
-   dmtlr.fit(X_train_imgs, X_train_vals, y_train)
+   dmtlr.fit(X_train_imgs, X_train_vals, y_train, num_epochs=epochs)
    preds = dmtlr.predict(X_test_imgs, X_test_vals)
    print(np.shape(preds))
    plot_preds(preds, y_test)
