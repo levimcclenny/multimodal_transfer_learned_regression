@@ -23,7 +23,7 @@ def get_data(type):
    if type == 1:
       try:
          print("Loading VGG16 images from data/ directory\n")
-         images = load(open("data/VGG16_images_2.pkl", 'rb'))
+         images = load(open("data/VGG16_images.pkl", 'rb'))
       except:
          print("VGG16 images couldnt be found in data/VGG16_images.pkl")
    if type == 2:
