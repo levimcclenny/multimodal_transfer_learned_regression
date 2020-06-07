@@ -79,7 +79,7 @@ python train.py --resnet
 where the flag ```--resnet``` can be replaced with ```--inception``` or ```--VGG16``` if those models are desired. The DMTL-R results will automatically pop up in a quartz (or equivalent) window upon completion, similar to the one below:
 
 <center>
-  <img align = "middle" src = "plot1.png" height = 250>
+  <img align = "middle" src = "results.png" height = 250>
 </center>
 
 ## Citation
