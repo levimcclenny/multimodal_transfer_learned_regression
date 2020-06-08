@@ -36,7 +36,7 @@ class DMTLR:
 
 if __name__ == "__main__":
 
-   #grab the CNN type desired from the user
+   #grab the CNN type and num_epochs desired from the user
    type, epochs = get_type_input()
 
    #Get data for reproducing results from paper
@@ -55,5 +55,4 @@ if __name__ == "__main__":
    dmtlr = DMTLR(type)
    dmtlr.fit(X_train_imgs, X_train_vals, y_train, num_epochs=epochs)
    preds = dmtlr.predict(X_test_imgs, X_test_vals)
-   print(np.shape(preds))
    plot_preds(preds, y_test)
