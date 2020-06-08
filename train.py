@@ -43,8 +43,9 @@ if __name__ == "__main__":
    images, par, targets = get_data(type)
 
    # state is extremely important to set prior to splitting data, as this state tells train_test_split to grab the same images
-   # for each test value, corresponding to a specific output. This makes splitting the data drastically easier.
-   state = 73
+   # for each test value, corresponding to a specific output. This makes splitting the data drastically easier. The state can be completely random,
+   # which allows for multiple passes over all the data in the validation experiments, but it must be constant when passed to train_test_split
+   state = 73 #np.random.randint(100) for a random state
 
    # use state with constant test_size to grab train/test images with corresponding train/test vectors.
    # since the y (output) vectors will be the same we only need to grab them once

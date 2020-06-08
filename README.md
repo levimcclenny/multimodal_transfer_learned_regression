@@ -24,20 +24,20 @@ Multimodal refers to the fact that multiple types of input are supported and com
 
 
 ## Requirements
-Code was implemented on the following versions:
+Code was implemented on the following package versions:
 ```
 tensorflow version = 1.15.2
 numpy version = 1.15.4
 keras version = 2.2.4
 ```
 
-We created a short script to test for the versions on your local machine, run the command
+We created a short script to test for the versions on your local machine, you can run the command
 ```
 python versiontest.py
 ```
 and verify versions. Tensorflow v2.2 is also know to work properly. Other versions of ```numpy``` and ```tf.keras``` should still function properly, but will likely throw depreciation warnings.
 
-### Virtual Environment
+### Virtual Environment (Optional)
 **(Mac)** To create a virtual environment to run this code, download the repository either via ```git clone``` or by clicking download at the top of github, then navigate to the top-level folder in a terminal window and execute the commands
 
 ```
@@ -65,7 +65,7 @@ numpy version = 1.15.4
 ```
 
 ## Data
-The data used in the paper is a very small subset of the data available at the [open-source microstructure database](http://microstructures.net). Data in the paper has been reduced to 2500 images of fully spinoidally-decomposed micorstructures, which have been preprocessed for each individual CNN. These preprocessed files are available as a ```.pkl``` file.
+The data used in the paper is a very small subset of the data available at the [open-source microstructure database](http://microstructures.net). Data in the paper has been reduced to 2500 images of spinoidally decomposed microstructures, which have been preprocessed for each individual CNN variant. These preprocessed files are available as a ```.pkl``` file.
 
 Data must be stored in the ```data/``` directory of this repo for the DMTL-R estimator to find it. The files are large (~1.5 Gb for the ResNet/VGG16 networks and ~2.4 Gb for the Inception network), therefore it is only recommended that you download the one that you are interested in running.
 
