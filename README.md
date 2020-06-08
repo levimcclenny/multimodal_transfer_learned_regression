@@ -24,12 +24,14 @@ Multimodal refers to the fact that multiple types of input are supported and com
 
 
 ## Requirements
-Code was implemented on the following package versions:
+Code was implemented in ```python 3.7``` with the following package versions:
 ```
 tensorflow version = 1.15.2
 numpy version = 1.15.4
 keras version = 2.2.4
 ```
+
+and ```matplotlib 3.1.1``` was used for visualization.
 
 We created a short script to test for the versions on your local machine, you can run the command
 ```
