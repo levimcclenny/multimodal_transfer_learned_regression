@@ -19,7 +19,7 @@ Abstract: *In many real-world applications of deep learning, estimation of a tar
 Multimodal refers to the fact that multiple types of input are supported and compliment each other to yield more accurate regression. The estimator takes advantage of transfer-learned weights from well-known and widely available CNN architectures. The entire estimator is trained via forward passes and subsequent backpropagation, as opposed to individually trained estimators which are aggregated or otherwise selected after training. The training flow is diagrammed here:
 
 <center>
-  <img align = "middle" src = "training.png" height = 330>
+  <img align = "middle" src = "training.png" height = 280>
 </center>
 
 
