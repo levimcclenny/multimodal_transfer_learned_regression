@@ -3,7 +3,7 @@
 
 
 ### Deep Multimodal Transfer-Learned Regression in Data-Poor Domains
-#### Levi McClenny<sup>1, 2</sup>, Mulugeta Haile<sup>2</sup>, Brian Sadler<sup>2</sup>, Ulisses Braga-Neto<sup>1</sup>, Vahid Attari<sup>3</sup>, Raymundo Arroyave<sup>3</sup>
+#### Levi McClenny<sup>1, 2</sup>, Mulugeta Haile<sup>2</sup>, Vahid Attari<sup>3</sup>, Brian Sadler<sup>2</sup>, Ulisses Braga-Neto<sup>1</sup>, Raymundo Arroyave<sup>3</sup>
 
 Paper: https://arxiv.org/abs/2006.09310
 
